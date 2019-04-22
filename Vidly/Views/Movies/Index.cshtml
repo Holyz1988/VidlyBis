@@ -1,0 +1,32 @@
+﻿@model IList<Vidly.Models.Movie>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Movies</h2>
+
+@if (!Model.Any())
+{
+    <p>We currently don't have any customer</p>
+}
+else
+{
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Movies</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var movie in Model)
+            {
+                <tr>
+                    <th>@Html.ActionLink(movie.Name, "Details", "Movies", new { id = movie.Id }, null)</th>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+
