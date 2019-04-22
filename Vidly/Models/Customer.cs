@@ -21,7 +21,6 @@ namespace Vidly.Models
         [StringLength(200)]
         public string LastName { get; set; }
 
-        [Required]
         public bool IsSubrscribedToNewsLetter { get; set; }
         public MembershipType MembershipType { get; set; }
 

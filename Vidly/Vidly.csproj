@@ -237,6 +237,10 @@
     <Compile Include="Migrations\201904221759227_DbSEtGenreRemoved.Designer.cs">
       <DependentUpon>201904221759227_DbSEtGenreRemoved.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904221953064_RemoveRequireIsSubrscribed.cs" />
+    <Compile Include="Migrations\201904221953064_RemoveRequireIsSubrscribed.Designer.cs">
+      <DependentUpon>201904221953064_RemoveRequireIsSubrscribed.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -372,6 +376,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904221759227_DbSEtGenreRemoved.resx">
       <DependentUpon>201904221759227_DbSEtGenreRemoved.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904221953064_RemoveRequireIsSubrscribed.resx">
+      <DependentUpon>201904221953064_RemoveRequireIsSubrscribed.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
