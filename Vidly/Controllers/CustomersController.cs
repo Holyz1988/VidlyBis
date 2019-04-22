@@ -57,8 +57,8 @@ namespace Vidly.Controllers
 
             // -> On récupère le client qui possède le bon identifiant
             //IList<Customer> customers = GetCustomers();
-            var customers = _context.Customers.Include(c => c.MembershipType).ToList();
-            Customer customer = customers.SingleOrDefault(c => c.Id == customerId);
+            Customer customer = _context.Customers.Include(c => c.MembershipType)
+                                                  .SingleOrDefault(c => c.Id == customerId);
 
             // -> On test si l'objet est null
             if (customer == null)
@@ -68,19 +68,9 @@ namespace Vidly.Controllers
             return View(customer);
         }
 
-        /// <summary>
-        /// Récupère la liste des clients
-        /// </summary>
-        /// <returns></returns>
-        private IList<Customer> GetCustomers()
+        public ActionResult New()
         {
-            // -> Retour de fonction
-            return new List<Customer>
-            {
-                new Customer { FirstName = "Amine", LastName = "Zeghad", Id = 1},
-                new Customer { FirstName = "Nadia", LastName = "Zeghad", Id = 2},
-                new Customer { FirstName = "Rachid", LastName = "Zeghad", Id = 3},
-            };
+            return View();
         }
     }
 }

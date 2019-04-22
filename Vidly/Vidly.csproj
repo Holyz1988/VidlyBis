@@ -217,9 +217,30 @@
     <Compile Include="Migrations\201904220211412_AddBirthDatePropertyToCustomer.Designer.cs">
       <DependentUpon>201904220211412_AddBirthDatePropertyToCustomer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904221735096_AddMovieDbsetGenreDbSet.cs" />
+    <Compile Include="Migrations\201904221735096_AddMovieDbsetGenreDbSet.Designer.cs">
+      <DependentUpon>201904221735096_AddMovieDbsetGenreDbSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904221738227_MoviePropertyAnnotationGenreNavigation.cs" />
+    <Compile Include="Migrations\201904221738227_MoviePropertyAnnotationGenreNavigation.Designer.cs">
+      <DependentUpon>201904221738227_MoviePropertyAnnotationGenreNavigation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904221740532_AddingAnnotations.cs" />
+    <Compile Include="Migrations\201904221740532_AddingAnnotations.Designer.cs">
+      <DependentUpon>201904221740532_AddingAnnotations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904221742199_PopulateGenreTable.cs" />
+    <Compile Include="Migrations\201904221742199_PopulateGenreTable.Designer.cs">
+      <DependentUpon>201904221742199_PopulateGenreTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904221759227_DbSEtGenreRemoved.cs" />
+    <Compile Include="Migrations\201904221759227_DbSEtGenreRemoved.Designer.cs">
+      <DependentUpon>201904221759227_DbSEtGenreRemoved.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MembershipType.cs" />
@@ -290,6 +311,7 @@
     <Content Include="Views\Customers\Details.cshtml" />
     <Content Include="Views\Movies\Index.cshtml" />
     <Content Include="Views\Movies\Details.cshtml" />
+    <Content Include="Views\Customers\New.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -334,6 +356,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904220211412_AddBirthDatePropertyToCustomer.resx">
       <DependentUpon>201904220211412_AddBirthDatePropertyToCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904221735096_AddMovieDbsetGenreDbSet.resx">
+      <DependentUpon>201904221735096_AddMovieDbsetGenreDbSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904221738227_MoviePropertyAnnotationGenreNavigation.resx">
+      <DependentUpon>201904221738227_MoviePropertyAnnotationGenreNavigation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904221740532_AddingAnnotations.resx">
+      <DependentUpon>201904221740532_AddingAnnotations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904221742199_PopulateGenreTable.resx">
+      <DependentUpon>201904221742199_PopulateGenreTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904221759227_DbSEtGenreRemoved.resx">
+      <DependentUpon>201904221759227_DbSEtGenreRemoved.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
