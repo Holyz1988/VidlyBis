@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.Entity;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,6 +10,19 @@ namespace Vidly.Controllers
 {
     public class CustomersController : Controller
     {
+        private ApplicationDbContext _context;
+
+        public CustomersController()
+        {
+            // ->Il faut disposer de l'objet Context
+            _context = new ApplicationDbContext();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
+
         // GET: Customers
         /// <summary>
         /// Renvoi la liste des clients 
@@ -17,7 +31,8 @@ namespace Vidly.Controllers
         public ActionResult Index()
         {
             // ->On récupère les clients
-            IList<Customer> customers = GetCustomers();
+            //IList<Customer> customers = GetCustomers();
+            var customers = _context.Customers.Include(c => c.MembershipType).ToList();
 
             // ->On test si l'objet client est null
             if (customers == null)
@@ -41,9 +56,9 @@ namespace Vidly.Controllers
                 return new HttpNotFoundResult();
 
             // -> On récupère le client qui possède le bon identifiant
-            IList<Customer> customers = GetCustomers();
-            Customer customer = customers.Where(c => c.Id == customerId)
-                                    .SingleOrDefault();
+            //IList<Customer> customers = GetCustomers();
+            var customers = _context.Customers.Include(c => c.MembershipType).ToList();
+            Customer customer = customers.SingleOrDefault(c => c.Id == customerId);
 
             // -> On test si l'objet est null
             if (customer == null)
