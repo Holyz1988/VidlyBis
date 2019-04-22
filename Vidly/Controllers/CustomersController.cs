@@ -83,6 +83,17 @@ namespace Vidly.Controllers
         [HttpPost]
         public ActionResult Save(Customer customer)
         {
+            if (!ModelState.IsValid)
+            {
+                CustomerFormViewModel viewModel = new CustomerFormViewModel
+                {
+                    Customer = customer,
+                    MembershipTypes = _context.MemberShipTypes.ToList()
+                };
+
+                return View("CustomerForm", viewModel);
+            }
+
             if (customer.Id == 0)
                 _context.Customers.Add(customer);
             else
@@ -100,8 +111,12 @@ namespace Vidly.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult Edit(int id)
+        [HttpPost]
+        public ActionResult Edit(int? id)
         {
+            if (!id.HasValue)
+                return HttpNotFound();
+
             Customer customer = _context.Customers.SingleOrDefault(c => c.Id == id);
 
             if (customer == null)
