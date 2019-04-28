@@ -8,7 +8,7 @@ namespace Vidly.ViewModels
     public class MovieFormViewModel
     {
         /// <summary>
-        /// Constructeur par défaut qui permet de populer le hidden field 
+        /// Constructeur par défaut qui permet de populer le hidden field dans MovieForm.cshtml
         /// </summary>
         public MovieFormViewModel()
         {
@@ -35,6 +35,7 @@ namespace Vidly.ViewModels
 
         [Required]
         [Display(Name = "Release Date")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy")]
         public DateTime? ReleaseDate { get; set; }
 
         [Required]

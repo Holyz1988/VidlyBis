@@ -113,7 +113,6 @@ namespace Vidly.Controllers
             return RedirectToAction("Index");
         }
 
-        [HttpPost]
         public ActionResult Edit(int? id)
         {
             if (!id.HasValue)

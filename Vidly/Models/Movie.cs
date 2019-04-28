@@ -19,9 +19,11 @@ namespace Vidly.Models
 
         [Required]
         [Display(Name = "Release Date")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString ="{0:dd/MM/yyyy")]
         public DateTime ReleaseDate { get; set; }
 
         [Required]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy")]
         public DateTime AddedDate { get; set; }
 
         [Required]
