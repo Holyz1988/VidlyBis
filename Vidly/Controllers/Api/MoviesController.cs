@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Data.Entity;
 using Vidly.Dtos;
 using Vidly.Models;
 using AutoMapper;
@@ -29,9 +30,13 @@ namespace Vidly.Controllers.Api
         /// Recupère la liste de tous les films
         /// </summary>
         /// <returns>Liste de films</returns>
-        public IEnumerable<MovieDto> GetMovies()
+        public IHttpActionResult GetMovies()
         {
-            return _context.Movies.ToList().Select(Mapper.Map<Movie, MovieDto>);
+            IEnumerable<MovieDto> moviesDto = _context.Movies
+                .Include(m => m.Genre)
+                .ToList().Select(Mapper.Map<Movie, MovieDto>);
+
+            return Ok(moviesDto);
         }
 
         /// GET /api/movies/{id}
@@ -47,7 +52,9 @@ namespace Vidly.Controllers.Api
             if (movie == null)
                 return NotFound();
 
-            return Ok(Mapper.Map<Movie, MovieDto>(movie));
+            MovieDto movieDto = Mapper.Map<Movie, MovieDto>(movie);
+
+            return Ok(movieDto);
         }
 
         /// POST /api/movies/

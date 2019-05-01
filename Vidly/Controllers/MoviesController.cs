@@ -30,15 +30,8 @@ namespace Vidly.Controllers
         /// <returns></returns>
         public ActionResult Index()
         {
-            // ->On récupère les clients
-            IEnumerable<Movie> movies = _context.Movies.Include(m => m.Genre).ToList();
-
-            // ->On test si l'objet client est null
-            if (movies == null)
-                return new HttpNotFoundResult();
-
             // -> Retour de fonction
-            return View(movies);
+            return View();
         }
 
         /// <summary>

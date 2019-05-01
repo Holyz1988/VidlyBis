@@ -31,16 +31,8 @@ namespace Vidly.Controllers
         /// <returns></returns>
         public ActionResult Index()
         {
-            // ->On récupère les clients
-            //IList<Customer> customers = GetCustomers();
-            var customers = _context.Customers.Include(c => c.MembershipType).ToList();
-
-            // ->On test si l'objet client est null
-            if (customers == null)
-                return new HttpNotFoundResult();
-
             // -> Retour de fonction
-            return View(customers);
+            return View();
         }
 
         // Customers/details/id
